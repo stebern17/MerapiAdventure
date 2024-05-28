@@ -19,5 +19,5 @@ jobs:
         php-version: '8.3'
     - name: Check PHP version
       run: php -v
-    - name: Run script
-      run: echo "Sultan faiz"
+    - name: Run script Sultan Faiz
+      run: echo "21.11.3980 Sultan faiz"
