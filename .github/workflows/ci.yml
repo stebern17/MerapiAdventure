@@ -23,4 +23,4 @@ jobs:
         run: php -v
 
     - name: Sultan Faiz
-      run: echo "sultan faiz"
+        run: echo "sultan faiz"
