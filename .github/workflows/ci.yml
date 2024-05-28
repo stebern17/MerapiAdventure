@@ -21,4 +21,3 @@ jobs:
         php-version: '8.3'
     - name: Check PHP version
         run: php -v
-    - run: echo "sultan faiz"
