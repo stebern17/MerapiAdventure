@@ -20,4 +20,7 @@ jobs:
       with:
         php-version: '8.3'
     - name: Check PHP version
-      run: php -v
+        run: php -v
+
+    - name: Sultan Faiz
+      run: echo "sultan faiz"
