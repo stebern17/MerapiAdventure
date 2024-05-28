@@ -20,9 +20,9 @@ include 'header.php';
     </ol>
     <ol class="carousel-indicators">
         <?php 
-            $querymotor =  $koneksi -> query('SELECT * FROM motor ORDER BY id_motor DESC')->fetchAll();
+            $queryrute =  $koneksi -> query('SELECT * FROM rute ORDER BY id_rute DESC')->fetchAll();
             $no =1;
-            foreach($querymotor as $isi)
+            foreach($queryrute as $isi)
             {
         ?>
         <li data-target="#carouselId" data-slide-to="<?= $no;?>" class="<?php if($no == '1'){ echo 'active';}?>"></li>
@@ -95,7 +95,7 @@ include 'header.php';
         <div class="col-sm-9">
             <div class="row">
                 <?php 
-                    $query =  $koneksi -> query('SELECT * FROM motor ORDER BY id_motor DESC')->fetchAll();
+                    $query =  $koneksi -> query('SELECT * FROM rute ORDER BY id_rute DESC')->fetchAll();
                     $no =1;
                     foreach($query as $isi)
                     {
@@ -109,7 +109,7 @@ include 'header.php';
                     <div class="card">
                     <img src="assets/image/<?php echo $isi['gambar'];?>" class="card-img-top" style="height:100%;">
                         <div class="card-body" style="background:#ddd">
-                        <h5 class="card-title"><?php echo $isi['merk'];?></h5>
+                        <h5 class="card-title"><?php echo $isi['nama_paket'];?></h5>
                         </div>
                         <ul class="list-group list-group-flush">
 
@@ -134,8 +134,8 @@ include 'header.php';
                         </li>
                         </ul>
                         <div class="card-body">
-                        <center><a href="booking.php?id=<?php echo $isi['id_motor'];?>" class="btn btn-success">Booking now!</a>
-                        <a href="detail.php?id=<?php echo $isi['id_motor'];?>" class="btn btn-info">Detail</a></center>
+                        <center><a href="booking.php?id=<?php echo $isi['id_rute'];?>" class="btn btn-success">Booking now!</a>
+                        <a href="detail.php?id=<?php echo $isi['id_rute'];?>" class="btn btn-info">Detail</a></center>
                         </div>
                     </div>
                 </div>

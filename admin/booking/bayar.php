@@ -14,8 +14,8 @@
     $c = $koneksi->query("SELECT * FROM pembayaran WHERE id_booking = '$id_booking'")->rowCount();
 
 
-    $id = $hasil['id_motor'];
-    $isi = $koneksi->query("SELECT * FROM motor WHERE id_motor = '$id'")->fetch();
+    $id = $hasil['id_rute'];
+    $isi = $koneksi->query("SELECT * FROM rute WHERE id_rute = '$id'")->fetch();
     
 ?>
 <br>

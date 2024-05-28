@@ -3,7 +3,7 @@
     require 'koneksi/koneksi.php';
     include 'header.php';
     $id = strip_tags($_GET['id']);
-    $hasil = $koneksi->query("SELECT * FROM motor WHERE id_motor = '$id'")->fetch();
+    $hasil = $koneksi->query("SELECT * FROM rute WHERE id_rute = '$id'")->fetch();
 ?>
 <div class="container mt-5">
 <div class="row">
@@ -15,7 +15,7 @@
     <div class="col-sm-6">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title"><?php echo $hasil['merk'];?></h4>
+                <h4 class="card-title"><?php echo $hasil['nama_paket'];?></h4>
                 <p class="card-text">
                     Deskripsi :
                     <?php echo $hasil['deskripsi'];?>
@@ -37,7 +37,7 @@
                 </ul>
                 <hr/>
                 <center>
-                    <a href="booking.php?id=<?php echo $hasil['id_motor'];?>" class="btn btn-success">Booking now!</a>
+                    <a href="booking.php?id=<?php echo $hasil['id_rute'];?>" class="btn btn-success">Booking now!</a>
                     <a href="index.php" class="btn btn-info">Back</a>
                 </center>
             </div>

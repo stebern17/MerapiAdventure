@@ -6,15 +6,21 @@
     {
         session_start();
     }
-    if(!empty($_GET['id'])){
+    if (!empty($_GET['id'])) {
         $id = strip_tags($_GET['id']);
-        $sql = "SELECT motor.merk, booking.* FROM booking JOIN motor ON 
-                booking.id_motor=motor.id_motor WHERE id_login = '$id' ORDER BY id_booking DESC";
-    }else{
-        $sql = "SELECT motor.merk, booking.* FROM booking JOIN motor ON 
-                booking.id_motor=motor.id_motor ORDER BY id_booking DESC";
+        $sql = "SELECT rute.nama_paket, booking.* 
+                FROM booking 
+                JOIN rute ON booking.id_rute = rute.id_rute 
+                WHERE id_login = '$id' 
+                ORDER BY id_booking DESC";
+    } else {
+        $sql = "SELECT rute.nama_paket, booking.* 
+                FROM booking 
+                JOIN rute ON booking.id_rute = rute.id_rute 
+                ORDER BY id_booking DESC";
     }
     $hasil = $koneksi->query($sql)->fetchAll();
+
 ?>
 
 <br>
@@ -32,10 +38,9 @@
                         <tr>
                             <th>No. </th>
                             <th>Kode Booking</th>
-                            <th>Merk Motor</th>
+                            <th>Nama Rute</th>
                             <th>Nama </th>
-                            <th>Tanggal Sewa </th>
-                            <th>Lama Sewa </th>
+                            <th>Tanggal Booking </th>
                             <th>Total Harga</th>
                             <th>Konfirmasi</th>
                             <th>Aksi</th>
@@ -46,10 +51,9 @@
                         <tr>
                             <td><?php echo $no;?></td>
                             <td><?= $isi['kode_booking'];?></td>
-                            <td><?= $isi['merk'];?></td>
+                            <td><?= $isi['nama_paket'];?></td>
                             <td><?= $isi['nama'];?></td>
                             <td><?= $isi['tanggal'];?></td>
-                            <td><?= $isi['lama_sewa'];?> hari</td>
                             <td>Rp. <?= number_format($isi['total_harga']);?></td>
                             <td><?= $isi['konfirmasi_pembayaran'];?></td>
                             <td>

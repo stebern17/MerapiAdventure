@@ -7,7 +7,7 @@
         echo '<script>alert("Harap login !");window.location="index.php"</script>';
     }
     $id = $_GET['id'];
-    $isi = $koneksi->query("SELECT * FROM motor WHERE id_motor = '$id'")->fetch();
+    $isi = $koneksi->query("SELECT * FROM rute WHERE id_rute = '$id'")->fetch();
 ?>
 <br>
 <br>
@@ -15,9 +15,9 @@
 <div class="row">
     <div class="col-sm-4">
         <div class="card">
-            <img src="assets/image/<?php echo $isi['gambar'];?>" class="card-img-top" style="height:200px;">
+            <img src="assets/image/<?php echo $isi['gambar'];?>" class="card-img-top" style="height:100%;">
             <div class="card-body" style="background:#ddd">
-            <h5 class="card-title"><?php echo $isi['merk'];?></h5>
+            <h5 class="card-title"><?php echo $isi['nama_paket'];?></h5>
             </div>
             <ul class="list-group list-group-flush">
 
@@ -58,15 +58,11 @@
                       <input type="text" name="no_tlp" id="" required class="form-control" placeholder="Telepon">
                     </div> 
                     <div class="form-group">
-                      <label for="">Tanggal Sewa</label>
+                      <label for="">Tanggal Booking</label>
                       <input type="date" name="tanggal" id="" required class="form-control" placeholder="Nama Anda">
                     </div> 
-                    <div class="form-group">
-                      <label for="">Lama Sewa</label>
-                      <input type="number" name="lama_sewa" id="" required class="form-control" placeholder="Lama Sewa">
-                    </div> 
                     <input type="hidden" value="<?php echo $_SESSION['USER']['id_login'];?>" name="id_login">
-                    <input type="hidden" value="<?php echo $isi['id_motor'];?>" name="id_motor">
+                    <input type="hidden" value="<?php echo $isi['id_rute'];?>" name="id_rute">
                     <input type="hidden" value="<?php echo $isi['harga'];?>" name="total_harga">
                     <hr/>
                     <?php if($isi['status'] == 'Tersedia'){?>
