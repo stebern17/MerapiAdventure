@@ -6,8 +6,8 @@
     {
         echo '<script>alert("Harap Login");window.location="index.php"</script>';
     }
-    $hasil = $koneksi->query("SELECT motor.merk,booking.* FROM booking JOIN motor ON 
-    booking.id_motor=motor.id_motor ORDER BY id_booking DESC")->fetchAll();
+    $hasil = $koneksi->query("SELECT rute.nama_paket,booking.* FROM booking JOIN rute ON 
+    booking.id_rute=rute.id_rute ORDER BY id_booking DESC")->fetchAll();
 ?>
 <br>
 <br>
@@ -26,8 +26,7 @@
                             <th>Kode Booking</th>
                             <th>Merk Motor</th>
                             <th>Nama </th>
-                            <th>Tanggal Sewa </th>
-                            <th>Lama Sewa </th>
+                            <th>Tanggal Pesan </th>
                             <th>Total Harga</th>
                             <th>Konfirmasi</th>
                             <th>Aksi</th>
@@ -38,10 +37,9 @@
                         <tr>
                             <td><?php echo $no;?></td>
                             <td><?= $isi['kode_booking'];?></td>
-                            <td><?= $isi['merk'];?></td>
+                            <td><?= $isi['nama_paket'];?></td>
                             <td><?= $isi['nama'];?></td>
                             <td><?= $isi['tanggal'];?></td>
-                            <td><?= $isi['lama_sewa'];?> hari</td>
                             <td>Rp. <?= number_format($isi['total_harga']);?></td>
                             <td><?= $isi['konfirmasi_pembayaran'];?></td>
                             <td>

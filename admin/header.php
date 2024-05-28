@@ -19,7 +19,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title><?php echo $title_web;?> | Rental Motor</title>
+    <title><?php echo $title_web;?> | Booking Wisata</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -51,17 +51,17 @@
                 <li class="nav-item <?php if($title_web == 'User'){ echo 'active';}?>">
                     <a class="nav-link" href="<?php echo $url;?>admin/user/index.php">User / Pelanggan</a>
                 </li>
-                <li class="nav-item <?php if($title_web == 'Daftar Motor'){ echo 'active';}?>
-                <?php if($title_web == 'Tambah Motor'){ echo 'active';}?>
-                <?php if($title_web == 'Edit Motor'){ echo 'active';}?>">
-                    <a class="nav-link" href="<?php echo $url;?>admin/pesawat/pesawat.php">Daftar Motor</a>
+                <li class="nav-item <?php if($title_web == 'Daftar Rute'){ echo 'active';}?>
+                <?php if($title_web == 'Tambah Rute'){ echo 'active';}?>
+                <?php if($title_web == 'Edit Rute'){ echo 'active';}?>">
+                    <a class="nav-link" href="<?php echo $url;?>admin/rute/rute.php">Daftar Rute</a>
                 </li>
                 <li class="nav-item <?php if($title_web == 'Daftar Booking'){ echo 'active';}?>
                 <?php if($title_web == 'Konfirmasi'){ echo 'active';}?>">
                     <a class="nav-link" href="<?php echo $url;?>admin/booking/booking.php">Daftar Booking</a>
                 </li>
                 <li class="nav-item <?php if($title_web == 'Peminjaman'){ echo 'active';}?>">
-                    <a class="nav-link" href="<?php echo $url;?>admin/peminjaman/peminjaman.php">Peminjaman / Pengembalian</a>
+                    <a class="nav-link" href="<?php echo $url;?>admin/peminjaman/peminjaman.php">Cek Booking</a>
                 </li>
             </ul>
             <ul class="navbar-nav my-2 my-lg-0">

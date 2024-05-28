@@ -5,9 +5,9 @@
     if($_GET['cari']??null)
     {
         $cari = strip_tags($_GET['cari']);
-        $query =  $koneksi -> query('SELECT * FROM motor WHERE merk LIKE "%'.$cari.'%" ORDER BY id_motor DESC')->fetchAll();
+        $query =  $koneksi -> query('SELECT * FROM rute WHERE merk LIKE "%'.$cari.'%" ORDER BY id_rute DESC')->fetchAll();
     }else{
-        $query =  $koneksi -> query('SELECT * FROM motor ORDER BY id_motor DESC')->fetchAll();
+        $query =  $koneksi -> query('SELECT * FROM rute ORDER BY id_rute DESC')->fetchAll();
     }
 ?>
 <br>
@@ -20,7 +20,7 @@
             {
                 echo '<h4> Keyword Pencarian : '.$cari.'</h4>';
             }else{
-                echo '<h4> Semua Pesawat</h4>';
+                echo '<h4> Semua Rute</h4>';
             }
         ?>
         <div class="row mt-3">
@@ -31,9 +31,9 @@
         ?>
             <div class="col-sm-4">
                 <div class="card">
-                <img src="assets/image/<?php echo $isi['gambar'];?>" class="card-img-top" style="height:200px;object-fit:cover;">
+                <img src="assets/image/<?php echo $isi['gambar'];?>" class="card-img-top" style="height:100%;object-fit:cover;">
                     <div class="card-body" style="background:#ddd">
-                        <h5 class="card-title"><?php echo $isi['merk'];?></h5>
+                        <h5 class="card-title"><?php echo $isi['nama_paket'];?></h5>
                     </div>
                     <ul class="list-group list-group-flush">
                         <?php if($isi['status'] == 'Tersedia'){?>
@@ -52,8 +52,8 @@
                     </ul>
                     <div class="card-body">
                         <center>
-                            <a href="booking.php?id=<?php echo $isi['id_motor'];?>" class="btn btn-success">Booking now!</a>
-                            <a href="detail.php?id=<?php echo $isi['id_motor'];?>" class="btn btn-info">Detail</a>
+                            <a href="booking.php?id=<?php echo $isi['id_rute'];?>" class="btn btn-success">Booking now!</a>
+                            <a href="detail.php?id=<?php echo $isi['id_rute'];?>" class="btn btn-info">Detail</a>
                         </center>
                     </div>
                 </div>

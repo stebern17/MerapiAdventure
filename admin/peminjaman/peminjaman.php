@@ -19,8 +19,8 @@
         $hsl = $koneksi->query("SELECT * FROM pembayaran WHERE id_booking = '$id_booking'")->fetch();
 
 
-        $id = $hasil['id_motor'];
-        $isi = $koneksi->query("SELECT * FROM motor WHERE id_motor = '$id'")->fetch();
+        $id = $hasil['id_rute'];
+        $isi = $koneksi->query("SELECT * FROM rute WHERE id_rute = '$id'")->fetch();
     }
     
 ?>
@@ -98,7 +98,7 @@
     <div class="col-sm-8">
          <div class="card">
             <div class="card-header">
-                <h5 class="card-title">Detail Booking & Status Motor</h5>
+                <h5 class="card-title">Detail Booking & Status Rute</h5>
             </div>
            <div class="card-body">
                <form method="post" action="proses.php?id=konfirmasi">
@@ -139,7 +139,7 @@
                             <td>Rp. <?php echo number_format($hasil['total_harga']);?></td>
                         </tr>
                         <tr>
-                            <td>Status Motor</td>
+                            <td>Status Rute</td>
                             <td> :</td>
                             <td>
                                 <select class="form-control" name="status">
@@ -153,7 +153,7 @@
                             </td>
                         </tr>
                     </table>
-                    <input type="hidden" name="id_motor" value="<?php echo $isi['id_motor'];?>">
+                    <input type="hidden" name="id_rute" value="<?php echo $isi['id_rute'];?>">
                     <button type="submit" class="btn btn-primary float-right">
                         Ubah Status
                     </button>
