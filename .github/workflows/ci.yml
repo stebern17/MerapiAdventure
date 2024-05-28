@@ -1,23 +1,24 @@
 name: PHP CI
 
+# Menentukan kapan workflow ini berjalan
 on:
   push:
-    branches: [ main ]
+    branches: [ main ] # Workflow berjalan saat ada push ke cabang 'main'
   pull_request:
-    branches: [ main ]
+    branches: [ main ] # Workflow berjalan saat ada pull request ke cabang 'main'
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Job ini berjalan pada runner dengan sistem operasi 'ubuntu-latest'
 
     steps:
     - uses: actions/checkout@v2
+      # Langkah pertama: mendownload kode dari repository
     - name: Set up PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.3'
+        php-version: '8.3' # Mengatur versi PHP ke 8.3
     - name: Check PHP version
-      run: php -v
-    - name: Run script Sultan Faiz
-      run: echo "21.11.3980 Sultan faiz"
+      run: php -v # Memeriksa versi PHP yang telah terpasang dengan menjalankan 'php -v'
+    - name: Run script
+      run: echo "21.11.3980 Sultan faiz" # Menjalankan skrip yang mencetak teks "Sultan faiz"
