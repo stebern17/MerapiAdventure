@@ -51,6 +51,10 @@ require ('koneksi/koneksi.php'); //mengimpor file koneksi.php yang diperlukan un
                     <li class="nav-item active">
                         <a class="nav-link ml-2" href="profil.php">Profil</a>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link ml-2" href="rating.php">Ulasan</a>
+
+                    </li>
                 <?php } ?>
             </ul>
             <?php if (!empty($_SESSION['USER'])) { ?>
