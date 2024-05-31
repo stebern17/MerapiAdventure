@@ -1,7 +1,7 @@
 <?php
-require '../../koneksi/koneksi.php';
-$title_web = 'Daftar Booking';
-include '../header.php';
+require '../koneksi/koneksi.php';
+$title_web = 'Ulasan';
+include './header.php';
 if (empty($_SESSION['USER'])) {
     session_start();
 }
@@ -27,7 +27,7 @@ $hasil = $koneksi->query($sql)->fetchAll();
     <div class="card">
         <div class="card-header text-white bg-primary">
             <h5 class="card-title">
-                Daftar Booking
+                Daftar Ulasan
             </h5>
         </div>
         <div class="card-body">
@@ -36,13 +36,7 @@ $hasil = $koneksi->query($sql)->fetchAll();
                     <thead>
                         <tr>
                             <th>No. </th>
-                            <th>Kode Booking</th>
-                            <th>Nama Rute</th>
-                            <th>Nama </th>
-                            <th>Tanggal Booking </th>
-                            <th>Total Harga</th>
-                            <th>Konfirmasi</th>
-                            <th>Aksi</th>
+                            <th>Isi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,16 +44,7 @@ $hasil = $koneksi->query($sql)->fetchAll();
                         foreach ($hasil as $isi) { ?>
                             <tr>
                                 <td><?php echo $no; ?></td>
-                                <td><?= $isi['kode_booking']; ?></td>
                                 <td><?= $isi['nama_paket']; ?></td>
-                                <td><?= $isi['nama']; ?></td>
-                                <td><?= $isi['tanggal']; ?></td>
-                                <td>Rp. <?= number_format($isi['total_harga']); ?>.000</td>
-                                <td><?= $isi['konfirmasi_pembayaran']; ?></td>
-                                <td>
-                                    <a class="btn btn-primary" href="bayar.php?id=<?= $isi['kode_booking']; ?>"
-                                        role="button">Detail</a>
-                                </td>
                             </tr>
                             <?php $no++;
                         } ?>

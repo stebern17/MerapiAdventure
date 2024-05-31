@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2024 at 11:30 AM
+-- Generation Time: May 31, 2024 at 01:05 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -41,6 +41,13 @@ CREATE TABLE `booking` (
   `konfirmasi_pembayaran` varchar(255) NOT NULL,
   `tgl_input` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`id_booking`, `kode_booking`, `id_login`, `id_rute`, `ktp`, `nama`, `alamat`, `no_tlp`, `tanggal`, `total_harga`, `konfirmasi_pembayaran`, `tgl_input`) VALUES
+(10, '1717149863', 15, 0, '11122309475690', 'Sultan Faaiz', 'Magelang, Secang', '08123477174', '2024-05-31', 700, 'Pembayaran di terima', '2024-05-31');
 
 -- --------------------------------------------------------
 
@@ -113,7 +120,8 @@ INSERT INTO `pembayaran` (`id_pembayaran`, `id_booking`, `no_rekening`, `nama_re
 (NULL, 4, 4545345, 'jono', 70000, '2023-12-11'),
 (NULL, 6, 4545345, 'jono', 70000, '2023-12-11'),
 (NULL, 3, 2999898, 'uni', 20000, '2023-12-11'),
-(NULL, 8, 4545345, 'doni', 70000, '2023-12-11');
+(NULL, 8, 4545345, 'doni', 70000, '2023-12-11'),
+(NULL, 10, 2147483647, 'Sultan Faaiz', 700, '2024-05-31');
 
 -- --------------------------------------------------------
 
@@ -148,6 +156,17 @@ CREATE TABLE `rute` (
 
 INSERT INTO `rute` (`id_rute`, `nama_paket`, `harga`, `deskripsi`, `status`, `gambar`) VALUES
 (0, 'Paket Hemat Keluarga', '700.000', 'Museum Mini - LostWorld- Bunker Kaliadem- Jeep Adventure', 'Tersedia', '1716967987.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ulasan`
+--
+
+CREATE TABLE `ulasan` (
+  `id_ulasan` int(5) NOT NULL,
+  `isi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -201,6 +220,12 @@ ALTER TABLE `rute`
   ADD PRIMARY KEY (`id_rute`);
 
 --
+-- Indexes for table `ulasan`
+--
+ALTER TABLE `ulasan`
+  ADD PRIMARY KEY (`id_ulasan`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -208,7 +233,7 @@ ALTER TABLE `rute`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id_booking` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_booking` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `login`
@@ -221,6 +246,12 @@ ALTER TABLE `login`
 --
 ALTER TABLE `pengambilan`
   MODIFY `id_pengambilan` int(15) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ulasan`
+--
+ALTER TABLE `ulasan`
+  MODIFY `id_ulasan` int(5) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

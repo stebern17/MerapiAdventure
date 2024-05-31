@@ -141,7 +141,7 @@ include 'header.php';
                                 <?php } ?>
 
 
-                                <li class="list-group-item bg-info text-white"><i class="fa fa-check"></i> Free Maintenance
+                                <li class="list-group-item bg-info text-white"><i class="fa fa-check"></i> Free Insurance
                                 </li>
                                 <li class="list-group-item bg-dark text-white">
                                     <i class="fa fa-money"></i> Rp. <?php echo number_format($isi['harga']); ?>.000

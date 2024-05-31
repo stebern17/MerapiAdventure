@@ -1,107 +1,94 @@
 <?php
- require 'koneksi.php';
-if($_GET['id'] == 'login'){
+require 'koneksi.php';
+if ($_GET['id'] == 'login') {
     $user = $_POST['user'];
     $pass = $_POST['pass'];
 
     $row = $koneksi->prepare("SELECT * FROM login WHERE username = ? AND password = md5(?)");
-    
-    $row->execute(array($user,$pass));
-    
+
+    $row->execute(array($user, $pass));
+
     $hitung = $row->rowCount();
 
-    if($hitung > 0)
-    {
+    if ($hitung > 0) {
 
         session_start();
         $hasil = $row->fetch();
-        
+
         $_SESSION['USER'] = $hasil;
 
-        if($_SESSION['USER']['level'] == 'admin')
-        {
-            echo '<script>alert("Login Sukses");window.location="../admin/index.php";</script>';    
-        }
-        else
-        {
-            echo '<script>alert("Login Sukses");window.location="../index.php";</script>'; 
+        if ($_SESSION['USER']['level'] == 'admin') {
+            echo '<script>alert("Login Sukses");window.location="../admin/index.php";</script>';
+        } else {
+            echo '<script>alert("Login Sukses");window.location="../index.php";</script>';
         }
 
-    }
-    else
-    {
-        echo '<script>alert("Login Gagal");window.location="../index.php";</script>'; 
+    } else {
+        echo '<script>alert("Login Gagal");window.location="../index.php";</script>';
     }
 }
 
-if($_GET['id'] == 'daftar')
-{
+if ($_GET['id'] == 'daftar') {
     $data[] = $_POST['nama'];
     $data[] = $_POST['user'];
     $data[] = md5($_POST['pass']);
     $data[] = 'pengguna';
 
     $row = $koneksi->prepare("SELECT * FROM login WHERE username = ?");
-    
+
     $row->execute(array($_POST['user']));
-    
+
     $hitung = $row->rowCount();
 
-    if($hitung > 0)
-    {
-        echo '<script>alert("Daftar Gagal, Username Sudah digunakan ");window.location="../index.php";</script>'; 
-    }
-    else
-    {
+    if ($hitung > 0) {
+        echo '<script>alert("Daftar Gagal, Username Sudah digunakan ");window.location="../index.php";</script>';
+    } else {
 
         $sql = "INSERT INTO `login`(`nama_pengguna`, `username`, `password`, `level`)
                 VALUES (?,?,?,?)";
         $row = $koneksi->prepare($sql);
         $row->execute($data);
-    
-        echo '<script>alert("Daftar Sukses Silahkan Login");window.location="../index.php";</script>'; 
+
+        echo '<script>alert("Daftar Sukses Silahkan Login");window.location="../index.php";</script>';
     }
 
 
 }
 
-if($_GET['id'] == 'booking')
-{
-    $total = $_POST['total_harga'] * $_POST['lama_sewa'];
-    $unik  = random_int(100,999);
-    $total_harga = $total+$unik;
+if ($_GET['id'] == 'booking') {
+    $total = $_POST['total_harga'];
+    $unik = random_int(100, 999);
+    $total_harga = $total;
 
     $data[] = time();
     $data[] = $_POST['id_login'];
-    $data[] = $_POST['id_motor'];
+    $data[] = $_POST['id_rute'];
     $data[] = $_POST['ktp'];
     $data[] = $_POST['nama'];
     $data[] = $_POST['alamat'];
     $data[] = $_POST['no_tlp'];
     $data[] = $_POST['tanggal'];
-    $data[] = $_POST['lama_sewa'];
     $data[] = $total_harga;
     $data[] = "Belum Bayar";
     $data[] = date('Y-m-d');
 
     $sql = "INSERT INTO booking (kode_booking, 
     id_login, 
-    id_motor, 
+    id_rute, 
     ktp, 
     nama, 
     alamat, 
     no_tlp, 
-    tanggal, lama_sewa, total_harga, konfirmasi_pembayaran, tgl_input) 
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+    tanggal, total_harga, konfirmasi_pembayaran, tgl_input) 
+        VALUES (?,?,?,?,?,?,?,?,?,?,?)";
     $row = $koneksi->prepare($sql);
     $row->execute($data);
 
     echo '<script>alert("Anda Sukses Booking silahkan Melakukan Pembayaran");
-    window.location="../bayar.php?id='.time().'";</script>'; 
+    window.location="../bayar.php?id=' . time() . '";</script>';
 }
 
-if($_GET['id'] == 'konfirmasi')
-{
+if ($_GET['id'] == 'konfirmasi') {
 
     $data[] = $_POST['id_booking'];
     $data[] = $_POST['no_rekening'];
@@ -120,5 +107,5 @@ if($_GET['id'] == 'konfirmasi')
     $row2 = $koneksi->prepare($sql2);
     $row2->execute($data2);
 
-    echo '<script>alert("Kirim Sukses , Pembayaran anda sedang diproses");history.go(-2);</script>'; 
+    echo '<script>alert("Kirim Sukses , Pembayaran anda sedang diproses");history.go(-2);</script>';
 }
