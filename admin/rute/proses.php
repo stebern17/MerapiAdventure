@@ -46,7 +46,7 @@ if ($_GET['aksi'] == 'tambah') {
             $data[] = $newfilename;
 
             $sql = "INSERT INTO `rute`(`nama_paket`, `harga`, `deskripsi`, `status`, `gambar`) 
-                VALUES (?,?,?,?,?,?)";
+                VALUES (?,?,?,?,?)";
             $row = $koneksi->prepare($sql);
             $row->execute($data);
             echo '<script>alert("sukses");window.location="rute.php"</script>';

@@ -1,11 +1,10 @@
 <?php
-    require('../../koneksi/koneksi.php');
-    $title_web = 'Daftar Rute';
-    include '../header.php';
-    if(empty($_SESSION['USER']))
-    {
-        session_start();
-    }
+require ('../../koneksi/koneksi.php');
+$title_web = 'Daftar Rute';
+include '../header.php';
+if (empty($_SESSION['USER'])) {
+    session_start();
+}
 ?>
 
 <br>
@@ -35,32 +34,36 @@
                     </thead>
                     <tbody>
                         <?php
-                            $sql = "SELECT *FROM rute ORDER BY id_rute ASC";
-                            $row = $koneksi->prepare($sql);
-                            $row->execute();
-                            $hasil = $row->fetchAll();
-                            $no = 1;
+                        $sql = "SELECT *FROM rute ORDER BY id_rute ASC";
+                        $row = $koneksi->prepare($sql);
+                        $row->execute();
+                        $hasil = $row->fetchAll();
+                        $no = 1;
 
-                            foreach($hasil as $isi)
-                            {
-                        ?>
-                        <tr>
-                            <td><?php echo $no;?></td>
-                            <td><img src="../../assets/image/<?php echo $isi['gambar'];?>" class="img-fluid" style="width:200px;"></td>
-                            <td><?php echo $isi['nama_paket'];?></td>
-                            <td><?php echo $isi['harga'];?></td>
-                            <td><?php echo $isi['status'];?></td>
-                            <td><?php echo $isi['deskripsi'];?></td>
-                            <td>
-                                <a class="btn btn-primary btn-sm" href="edit.php?id=<?php echo $isi['id_rute'];?>" role="button">Edit</a>  
-                                <a style="margin-top:5px"class="btn btn-danger  btn-sm" href="proses.php?aksi=hapus&id=<?= $isi['id_rute'];?>&gambar=<?= $isi['gambar'];?>" role="button">Hapus</a>  
-                            </td>
-                        </tr>
-                        <?php $no++; }?>
+                        foreach ($hasil as $isi) {
+                            ?>
+                            <tr>
+                                <td><?php echo $no; ?></td>
+                                <td><img src="../../assets/image/<?php echo $isi['gambar']; ?>" class="img-fluid"
+                                        style="width:200px;"></td>
+                                <td><?php echo $isi['nama_paket']; ?></td>
+                                <td><?php echo $isi['harga']; ?></td>
+                                <td><?php echo $isi['status']; ?></td>
+                                <td><?php echo $isi['deskripsi']; ?></td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm" href="edit.php?id=<?php echo $isi['id_rute']; ?>"
+                                        role="button">Edit</a>
+                                    <a style="margin-top:5px" class="btn btn-danger  btn-sm"
+                                        href="proses.php?aksi=hapus&id=<?= $isi['id_rute']; ?>&gambar=<?= $isi['gambar']; ?>"
+                                        role="button">Hapus</a>
+                                </td>
+                            </tr>
+                            <?php $no++;
+                        } ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
-<?php  include '../footer.php';?>
+<?php include '../footer.php'; ?>
