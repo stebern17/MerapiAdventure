@@ -30,7 +30,7 @@
 
                             <div class="form-group row">
                                 <label class="col-sm-3">Nama Rute</label>
-                                <input type="text" class="form-control col-sm-9" name="merk" placeholder="Isi Merk">
+                                <input type="text" class="form-control col-sm-9" name="merk" placeholder="Isi Rute">
                             </div>
 
                             <div class="form-group row">

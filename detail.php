@@ -30,7 +30,7 @@
                         <i class="fa fa-close"></i> Not Available
                     </li>
                     <?php }?>
-                    <li class="list-group-item bg-info text-white"><i class="fa fa-check"></i> Free Maintenance</li>
+                    <li class="list-group-item bg-info text-white"><i class="fa fa-check"></i> Free Insurance</li>
                     <li class="list-group-item bg-dark text-white">
                         <i class="fa fa-money"></i> Rp. <?php echo number_format($hasil['harga']);?>/ day
                     </li>

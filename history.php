@@ -24,7 +24,7 @@
                         <tr>
                             <th>No. </th>
                             <th>Kode Booking</th>
-                            <th>Merk Motor</th>
+                            <th>Nama Rute</th>
                             <th>Nama </th>
                             <th>Tanggal Pesan </th>
                             <th>Total Harga</th>
