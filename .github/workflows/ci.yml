@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest # Job ini berjalan pada runner dengan sistem operasi 'ubuntu-latest'
+    runs-on: windows-latest # Job ini berjalan pada runner dengan sistem operasi 'windows-latest'
 
     steps:
     - uses: actions/checkout@v2
