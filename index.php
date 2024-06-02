@@ -6,7 +6,7 @@ if (empty($_SESSION['USER'])) {
 include 'header.php';
 
 ?>
-<div id="carouselId" class="carousel slide" data-ride="carousel">
+<div id="carouselId" class="carousel slide "  data-ride="carousel">
     <ol class="carousel-indicators">
         <?php
         $querywisata = $koneksi->query('SELECT * FROM wisata ORDER BY id DESC')->fetchAll();
@@ -19,19 +19,7 @@ include 'header.php';
             <?php $no++;
         } ?>
     </ol>
-    <ol class="carousel-indicators">
-        <?php
-        $queryrute = $koneksi->query('SELECT * FROM rute ORDER BY id_rute DESC')->fetchAll();
-        $no = 1;
-        foreach ($queryrute as $isi) {
-            ?>
-            <li data-target="#carouselId" data-slide-to="<?= $no; ?>" class="<?php if ($no == '1') {
-                  echo 'active';
-              } ?>"></li>
-            <?php $no++;
-        } ?>
-    </ol>
-    <div class="carousel-inner" role="listbox">
+    <div class="carousel-inner"  role="listbox">
         <?php
         $no = 1;
         foreach ($querywisata as $gambar) {
@@ -45,11 +33,11 @@ include 'header.php';
             <?php $no++;
         } ?>
     </div>
-    <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+    <a class="carousel-control-prev btn-light" href="#carouselId" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+    <a class="carousel-control-next btn-light" href="#carouselId" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>

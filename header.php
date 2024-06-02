@@ -23,7 +23,7 @@ require ('koneksi/koneksi.php'); //mengimpor file koneksi.php yang diperlukan un
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="./index.php">
             <div class="d-flex align-items-center">
                 <img src="assets/image/logo.png" class="logo-corp" alt="logo"
                     style="display: inline-block;width: 150px; height: 150px;">
