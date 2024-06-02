@@ -7,16 +7,14 @@ if (empty($_SESSION['USER'])) {
 }
 if (!empty($_GET['id'])) {
     $id = strip_tags($_GET['id']);
-    $sql = "SELECT rute.nama_paket, booking.* 
-                FROM booking 
-                JOIN rute ON booking.id_rute = rute.id_rute 
+    $sql = "SELECT ulasan.* 
+                FROM ulasan 
                 WHERE id_login = '$id' 
-                ORDER BY id_booking DESC";
+                ORDER BY id_ulasan DESC";
 } else {
-    $sql = "SELECT rute.nama_paket, booking.* 
-                FROM booking 
-                JOIN rute ON booking.id_rute = rute.id_rute 
-                ORDER BY id_booking DESC";
+    $sql = "SELECT ulasan.* 
+                FROM ulasan 
+                ORDER BY id_ulasan DESC";
 }
 $hasil = $koneksi->query($sql)->fetchAll();
 
@@ -37,6 +35,7 @@ $hasil = $koneksi->query($sql)->fetchAll();
                         <tr>
                             <th>No. </th>
                             <th>Isi</th>
+                            <th>Waktu Dibuat</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,7 +43,8 @@ $hasil = $koneksi->query($sql)->fetchAll();
                         foreach ($hasil as $isi) { ?>
                             <tr>
                                 <td><?php echo $no; ?></td>
-                                <td><?= $isi['nama_paket']; ?></td>
+                                <td><?= $isi['isi']; ?></td>
+                                <td><?= $isi['created_at']; ?></td>
                             </tr>
                             <?php $no++;
                         } ?>

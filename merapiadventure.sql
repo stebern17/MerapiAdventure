@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2024 at 01:05 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Jun 02, 2024 at 04:05 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -92,7 +92,8 @@ CREATE TABLE `login` (
 
 INSERT INTO `login` (`id_login`, `nama_pengguna`, `username`, `password`, `level`) VALUES
 (12, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
-(15, 'Sultan Faaiz', 'Sultan123', '202cb962ac59075b964b07152d234b70', 'pengguna');
+(15, 'Sultan Faaiz', 'Sultan123', '202cb962ac59075b964b07152d234b70', 'pengguna'),
+(16, 'agus', 'agus', 'fdf169558242ee051cca1479770ebac3', 'pengguna');
 
 -- --------------------------------------------------------
 
@@ -165,8 +166,17 @@ INSERT INTO `rute` (`id_rute`, `nama_paket`, `harga`, `deskripsi`, `status`, `ga
 
 CREATE TABLE `ulasan` (
   `id_ulasan` int(5) NOT NULL,
-  `isi` varchar(255) NOT NULL
+  `isi` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ulasan`
+--
+
+INSERT INTO `ulasan` (`id_ulasan`, `isi`, `created_at`) VALUES
+(1, 'fgdgfd', '2024-06-02 13:56:40'),
+(2, 'fgdgfd', '2024-06-02 13:56:55');
 
 -- --------------------------------------------------------
 
@@ -239,7 +249,7 @@ ALTER TABLE `booking`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id_login` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_login` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `pengambilan`
@@ -251,7 +261,7 @@ ALTER TABLE `pengambilan`
 -- AUTO_INCREMENT for table `ulasan`
 --
 ALTER TABLE `ulasan`
-  MODIFY `id_ulasan` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_ulasan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
