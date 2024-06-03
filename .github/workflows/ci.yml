@@ -21,4 +21,4 @@ jobs:
     - name: Check PHP version
       run: php -v # Memeriksa versi PHP yang telah terpasang dengan menjalankan 'php -v'
     - name: Run script
-      run: echo "21.11.3980 Sultan faiz" # Menjalankan skrip yang mencetak teks "Sultan faiz"
+      run: echo "MerapiAdventure" # Menjalankan skrip yang mencetak teks "MerapiAdventure"
